@@ -5,17 +5,21 @@
  */
 package Test;
 
+import Util.Dbcnx;
+import java.sql.Connection;
+
 /**
  *
  * @author ASUS
  */
-public class Zanimo {
+public class CnxBd {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Connection cnx = Dbcnx.getInstance().getConnection();
+        
     }
     
 }
