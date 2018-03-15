@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author ASUS
  */
 public class Dbcnx {
-    String url="jdbc:mysql://localhost/zanimouu";
+    String url="jdbc:mysql://localhost/zanimo";
     String login="root";
     String pwd="";
     Connection cnx;

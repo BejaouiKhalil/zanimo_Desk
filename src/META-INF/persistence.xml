@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Zanimo_DeskPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>Entities.Post</class>
+    <class>Entities.Payments</class>
+    <class>Entities.PaymentInstructions</class>
+    <class>Entities.Annonces</class>
+    <class>Entities.FosUser</class>
+    <class>Entities.ThreadMetadata</class>
+    <class>Entities.FinancialTransactions</class>
+    <class>Entities.MessageMetadata</class>
+    <class>Entities.Annoncedresseur</class>
+    <class>Entities.Thread</class>
+    <class>Entities.LostAnimal</class>
+    <class>Entities.Commentaire</class>
+    <class>Entities.AnnCabinetVet</class>
+    <class>Entities.Orders</class>
+    <class>Entities.Food</class>
+    <class>Entities.Comment</class>
+    <class>Entities.Accessory</class>
+    <class>Entities.Credits</class>
+    <class>Entities.ThreadComment</class>
+    <class>Entities.Rate</class>
+    <class>Entities.Animal</class>
+    <class>Entities.Rateanimal</class>
+    <class>Entities.Rateacces</class>
+    <class>Entities.Rubrique</class>
+    <class>Entities.Message</class>
+    <class>Entities.Image</class>
+    <class>Entities.Wishlist</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/zanimo?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>
