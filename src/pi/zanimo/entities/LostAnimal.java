@@ -7,59 +7,22 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "lost_animal")
-@NamedQueries({
-    @NamedQuery(name = "LostAnimal.findAll", query = "SELECT l FROM LostAnimal l")})
 public class LostAnimal implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "Title")
     private String title;
-    @Basic(optional = false)
-    @Column(name = "Description")
     private String description;
-    @Basic(optional = false)
-    @Column(name = "Date")
-    @Temporal(TemporalType.DATE)
     private Date date;
-    @Basic(optional = false)
-    @Column(name = "ImageUrl")
     private String imageUrl;
-    @Basic(optional = false)
-    @Column(name = "phone")
     private String phone;
-    @Column(name = "etat")
     private String etat;
-    @Basic(optional = false)
-    @Column(name = "address")
     private String address;
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne
     private FosUser userId;
 
     public LostAnimal() {

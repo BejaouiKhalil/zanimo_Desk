@@ -9,94 +9,33 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "payment_instructions")
-@NamedQueries({
-    @NamedQuery(name = "PaymentInstructions.findAll", query = "SELECT p FROM PaymentInstructions p")})
 public class PaymentInstructions implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
-    @Column(name = "amount")
     private BigDecimal amount;
-    @Basic(optional = false)
-    @Column(name = "approved_amount")
     private BigDecimal approvedAmount;
-    @Basic(optional = false)
-    @Column(name = "approving_amount")
     private BigDecimal approvingAmount;
-    @Basic(optional = false)
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "credited_amount")
     private BigDecimal creditedAmount;
-    @Basic(optional = false)
-    @Column(name = "crediting_amount")
     private BigDecimal creditingAmount;
-    @Basic(optional = false)
-    @Column(name = "currency")
     private String currency;
-    @Basic(optional = false)
-    @Column(name = "deposited_amount")
     private BigDecimal depositedAmount;
-    @Basic(optional = false)
-    @Column(name = "depositing_amount")
     private BigDecimal depositingAmount;
-    @Basic(optional = false)
-    @Lob
-    @Column(name = "extended_data")
     private String extendedData;
-    @Basic(optional = false)
-    @Column(name = "payment_system_name")
     private String paymentSystemName;
-    @Basic(optional = false)
-    @Column(name = "reversing_approved_amount")
     private BigDecimal reversingApprovedAmount;
-    @Basic(optional = false)
-    @Column(name = "reversing_credited_amount")
     private BigDecimal reversingCreditedAmount;
-    @Basic(optional = false)
-    @Column(name = "reversing_deposited_amount")
     private BigDecimal reversingDepositedAmount;
-    @Basic(optional = false)
-    @Column(name = "state")
     private short state;
-    @Column(name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentInstructionId")
     private Collection<Payments> paymentsCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentInstructionId")
     private Collection<Credits> creditsCollection;
-    @OneToOne(mappedBy = "paymentInstructionId")
     private Orders orders;
 
     public PaymentInstructions() {

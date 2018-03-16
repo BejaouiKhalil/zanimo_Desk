@@ -7,66 +7,24 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "annoncedresseur")
-@NamedQueries({
-    @NamedQuery(name = "Annoncedresseur.findAll", query = "SELECT a FROM Annoncedresseur a")})
 public class Annoncedresseur implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "nom_salle")
     private String nomSalle;
-    @Basic(optional = false)
-    @Column(name = "adresse_salle")
     private String adresseSalle;
-    @Basic(optional = false)
-    @Column(name = "lng")
     private String lng;
-    @Basic(optional = false)
-    @Column(name = "lat")
     private String lat;
-    @Basic(optional = false)
-    @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @Column(name = "numero_salle")
     private String numeroSalle;
-    @Basic(optional = false)
-    @Column(name = "description")
     private String description;
-    @Basic(optional = false)
-    @Column(name = "validation")
     private int validation;
-    @Basic(optional = false)
-    @Column(name = "datedeoffre")
-    @Temporal(TemporalType.DATE)
     private Date datedeoffre;
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @OneToOne
     private FosUser idUser;
 
     public Annoncedresseur() {

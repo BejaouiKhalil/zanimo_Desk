@@ -6,55 +6,22 @@
 package pi.zanimo.entities;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "annonces")
-@NamedQueries({
-    @NamedQuery(name = "Annonces.findAll", query = "SELECT a FROM Annonces a")})
 public class Annonces implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "image")
     private String image;
-    @Basic(optional = false)
-    @Column(name = "AnimalName")
     private String animalName;
-    @Basic(optional = false)
-    @Column(name = "type")
     private String type;
-    @Basic(optional = false)
-    @Column(name = "race")
     private String race;
-    @Basic(optional = false)
-    @Column(name = "sex")
     private String sex;
-    @Basic(optional = false)
-    @Column(name = "etat")
     private String etat;
-    @Basic(optional = false)
-    @Column(name = "phone_number")
     private String phoneNumber;
-    @Basic(optional = false)
-    @Column(name = "price")
     private double price;
 
     public Annonces() {

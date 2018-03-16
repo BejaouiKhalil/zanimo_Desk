@@ -7,58 +7,22 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "food")
-@NamedQueries({
-    @NamedQuery(name = "Food.findAll", query = "SELECT f FROM Food f")})
 public class Food implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "nom")
     private String nom;
-    @Basic(optional = false)
-    @Column(name = "dateAjout")
-    @Temporal(TemporalType.DATE)
     private Date dateAjout;
-    @Column(name = "dateModification")
-    @Temporal(TemporalType.DATE)
     private Date dateModification;
-    @Basic(optional = false)
-    @Column(name = "description")
     private String description;
-    @Basic(optional = false)
-    @Column(name = "image")
     private String image;
-    @Basic(optional = false)
-    @Column(name = "type")
     private String type;
-    @Basic(optional = false)
-    @Column(name = "prix")
     private double prix;
-    @Basic(optional = false)
-    @Column(name = "rating")
     private int rating;
 
     public Food() {

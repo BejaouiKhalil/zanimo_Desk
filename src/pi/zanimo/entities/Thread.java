@@ -8,53 +8,20 @@ package pi.zanimo.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "thread")
-@NamedQueries({
-    @NamedQuery(name = "Thread.findAll", query = "SELECT t FROM Thread t")})
 public class Thread implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "subject")
     private String subject;
-    @Basic(optional = false)
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "is_spam")
     private boolean isSpam;
-    @OneToMany(mappedBy = "threadId")
     private Collection<ThreadMetadata> threadMetadataCollection;
-    @JoinColumn(name = "created_by_id", referencedColumnName = "id")
-    @ManyToOne
     private FosUser createdById;
-    @OneToMany(mappedBy = "threadId")
     private Collection<Message> messageCollection;
 
     public Thread() {

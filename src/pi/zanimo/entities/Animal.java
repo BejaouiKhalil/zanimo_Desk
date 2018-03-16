@@ -7,55 +7,21 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "animal")
-@NamedQueries({
-    @NamedQuery(name = "Animal.findAll", query = "SELECT a FROM Animal a")})
 public class Animal implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "image")
     private String image;
-    @Basic(optional = false)
-    @Column(name = "type")
     private String type;
-    @Basic(optional = false)
-    @Column(name = "prix")
     private double prix;
-    @Basic(optional = false)
-    @Column(name = "race")
     private String race;
-    @Basic(optional = false)
-    @Column(name = "gendere")
     private String gendere;
-    @Basic(optional = false)
-    @Column(name = "age")
     private double age;
-    @Basic(optional = false)
-    @Column(name = "description")
     private String description;
-    @OneToMany(mappedBy = "animalId")
     private Collection<Rateanimal> rateanimalCollection;
 
     public Animal() {

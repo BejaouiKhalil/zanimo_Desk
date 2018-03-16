@@ -9,70 +9,25 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "credits")
-@NamedQueries({
-    @NamedQuery(name = "Credits.findAll", query = "SELECT c FROM Credits c")})
 public class Credits implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "attention_required")
     private boolean attentionRequired;
-    @Basic(optional = false)
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
-    @Column(name = "credited_amount")
     private BigDecimal creditedAmount;
-    @Basic(optional = false)
-    @Column(name = "crediting_amount")
     private BigDecimal creditingAmount;
-    @Basic(optional = false)
-    @Column(name = "reversing_amount")
     private BigDecimal reversingAmount;
-    @Basic(optional = false)
-    @Column(name = "state")
     private short state;
-    @Basic(optional = false)
-    @Column(name = "target_amount")
     private BigDecimal targetAmount;
-    @Column(name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
-    @OneToMany(mappedBy = "creditId")
     private Collection<FinancialTransactions> financialTransactionsCollection;
-    @JoinColumn(name = "payment_id", referencedColumnName = "id")
-    @ManyToOne
     private Payments paymentId;
-    @JoinColumn(name = "payment_instruction_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
     private PaymentInstructions paymentInstructionId;
 
     public Credits() {

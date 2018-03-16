@@ -7,59 +7,21 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "comment")
-@NamedQueries({
-    @NamedQuery(name = "Comment.findAll", query = "SELECT c FROM Comment c")})
 public class Comment implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Lob
-    @Column(name = "body")
     private String body;
-    @Basic(optional = false)
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "ancestors")
     private String ancestors;
-    @Basic(optional = false)
-    @Column(name = "depth")
     private int depth;
-    @Basic(optional = false)
-    @Column(name = "state")
     private int state;
-    @JoinColumn(name = "thread_id", referencedColumnName = "id")
-    @ManyToOne
     private ThreadComment threadId;
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
-    @ManyToOne
     private FosUser authorId;
 
     public Comment() {

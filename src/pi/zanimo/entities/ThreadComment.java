@@ -8,45 +8,18 @@ package pi.zanimo.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "thread_comment")
-@NamedQueries({
-    @NamedQuery(name = "ThreadComment.findAll", query = "SELECT t FROM ThreadComment t")})
 public class ThreadComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private String id;
-    @Basic(optional = false)
-    @Column(name = "permalink")
     private String permalink;
-    @Basic(optional = false)
-    @Column(name = "is_commentable")
     private boolean isCommentable;
-    @Basic(optional = false)
-    @Column(name = "num_comments")
     private int numComments;
-    @Column(name = "last_comment_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastCommentAt;
-    @OneToMany(mappedBy = "threadId")
     private Collection<Comment> commentCollection;
 
     public ThreadComment() {

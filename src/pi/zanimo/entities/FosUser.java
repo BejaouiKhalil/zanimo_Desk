@@ -8,112 +8,44 @@ package pi.zanimo.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "fos_user")
-@NamedQueries({
-    @NamedQuery(name = "FosUser.findAll", query = "SELECT f FROM FosUser f")})
 public class FosUser implements Serializable {
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "idUser")
     private Wishlist wishlist;
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "username")
     private String username;
-    @Basic(optional = false)
-    @Column(name = "username_canonical")
     private String usernameCanonical;
-    @Basic(optional = false)
-    @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @Column(name = "email_canonical")
     private String emailCanonical;
-    @Basic(optional = false)
-    @Column(name = "enabled")
     private boolean enabled;
-    @Column(name = "salt")
     private String salt;
-    @Basic(optional = false)
-    @Column(name = "password")
     private String password;
-    @Column(name = "last_login")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastLogin;
-    @Column(name = "confirmation_token")
     private String confirmationToken;
-    @Column(name = "password_requested_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date passwordRequestedAt;
-    @Basic(optional = false)
-    @Lob
-    @Column(name = "roles")
     private String roles;
-    @Basic(optional = false)
-    @Column(name = "adresse")
     private String adresse;
-    @Column(name = "profile_pic")
     private String profilePic;
-    @Basic(optional = false)
-    @Column(name = "city")
     private String city;
-    @Basic(optional = false)
-    @Column(name = "zip_codes")
     private int zipCodes;
-    @Basic(optional = false)
-    @Column(name = "state")
     private String state;
-    @Basic(optional = false)
-    @Column(name = "sexe")
     private String sexe;
-    @Basic(optional = false)
-    @Column(name = "phone_number")
     private String phoneNumber;
-    @OneToOne(mappedBy = "idUser")
     private Annoncedresseur annoncedresseur;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
     private Collection<Post> postCollection;
-    @OneToOne(mappedBy = "idUser")
     private AnnCabinetVet annCabinetVet;
-    @OneToMany(mappedBy = "participantId")
     private Collection<ThreadMetadata> threadMetadataCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "postedBy")
     private Collection<Commentaire> commentaireCollection;
-    @OneToMany(mappedBy = "createdById")
     private Collection<Thread> threadCollection;
-    @OneToMany(mappedBy = "senderId")
     private Collection<Message> messageCollection;
-    @OneToMany(mappedBy = "participantId")
     private Collection<MessageMetadata> messageMetadataCollection;
-    @OneToMany(mappedBy = "userId")
     private Collection<LostAnimal> lostAnimalCollection;
-    @OneToMany(mappedBy = "authorId")
     private Collection<Comment> commentCollection;
 
     public FosUser() {

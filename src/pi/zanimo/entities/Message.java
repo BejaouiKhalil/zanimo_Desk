@@ -8,53 +8,19 @@ package pi.zanimo.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "message")
-@NamedQueries({
-    @NamedQuery(name = "Message.findAll", query = "SELECT m FROM Message m")})
 public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Lob
-    @Column(name = "body")
     private String body;
-    @Basic(optional = false)
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-    @JoinColumn(name = "thread_id", referencedColumnName = "id")
-    @ManyToOne
     private Thread threadId;
-    @JoinColumn(name = "sender_id", referencedColumnName = "id")
-    @ManyToOne
     private FosUser senderId;
-    @OneToMany(mappedBy = "messageId")
     private Collection<MessageMetadata> messageMetadataCollection;
 
     public Message() {

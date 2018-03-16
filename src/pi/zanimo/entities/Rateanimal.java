@@ -6,45 +6,18 @@
 package pi.zanimo.entities;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "rateanimal")
-@NamedQueries({
-    @NamedQuery(name = "Rateanimal.findAll", query = "SELECT r FROM Rateanimal r")})
 public class Rateanimal implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "user_id")
     private int userId;
-    @Basic(optional = false)
-    @Column(name = "stars")
     private int stars;
-    @Basic(optional = false)
-    @Column(name = "note")
     private String note;
-    @JoinColumn(name = "animal_id", referencedColumnName = "id")
-    @ManyToOne
     private Animal animalId;
 
     public Rateanimal() {

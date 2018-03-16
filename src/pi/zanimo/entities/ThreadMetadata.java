@@ -7,50 +7,19 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "thread_metadata")
-@NamedQueries({
-    @NamedQuery(name = "ThreadMetadata.findAll", query = "SELECT t FROM ThreadMetadata t")})
 public class ThreadMetadata implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "is_deleted")
     private boolean isDeleted;
-    @Column(name = "last_participant_message_date")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastParticipantMessageDate;
-    @Column(name = "last_message_date")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastMessageDate;
-    @JoinColumn(name = "participant_id", referencedColumnName = "id")
-    @ManyToOne
     private FosUser participantId;
-    @JoinColumn(name = "thread_id", referencedColumnName = "id")
-    @ManyToOne
     private Thread threadId;
 
     public ThreadMetadata() {

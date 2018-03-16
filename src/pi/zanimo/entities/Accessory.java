@@ -8,67 +8,27 @@ package pi.zanimo.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-@Entity
-@Table(name = "accessory")
-@NamedQueries({
-    @NamedQuery(name = "Accessory.findAll", query = "SELECT a FROM Accessory a")})
 public class Accessory implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
+    
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "name")
     private String name;
-    @Basic(optional = false)
-    @Column(name = "description")
     private String description;
-    @Basic(optional = false)
-    @Column(name = "price")
     private double price;
-    @Basic(optional = false)
-    @Column(name = "type")
     private String type;
-    @Basic(optional = false)
-    @Column(name = "image_url")
     private String imageUrl;
-    @Basic(optional = false)
-    @Column(name = "stock")
     private int stock;
-    @Column(name = "rate")
     private Integer rate;
-    @Column(name = "promo")
     private Integer promo;
-    @Basic(optional = false)
-    @Column(name = "inserted")
-    @Temporal(TemporalType.DATE)
     private Date inserted;
-    @Column(name = "modificated")
-    @Temporal(TemporalType.DATE)
     private Date modificated;
-    @OneToMany(mappedBy = "accessoryId")
     private Collection<Image> imageCollection;
-    @OneToMany(mappedBy = "accessoryId")
     private Collection<Rateacces> rateaccesCollection;
 
     public Accessory() {
