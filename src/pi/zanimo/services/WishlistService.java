@@ -32,7 +32,7 @@ public class WishlistService {
             while (rs.next()) {
                 Wishlist wlst = new Wishlist(rs.getInt(1));
                 wlst.setIdProd(rs.getString(2));
-                wlst.setIdUser(rs.getObject(3,FosUser.class));
+                //wlst.setIdUser(rs.getObject(3,FosUser.class));
                 lst.add(wlst);
             }
             
@@ -54,7 +54,7 @@ public class WishlistService {
             while (rs.next()) {
                 wlst = new Wishlist(rs.getInt(1));
                 wlst.setIdProd(rs.getString(2));
-                wlst.setIdUser(rs.getObject(3,FosUser.class));
+                //wlst.setIdUser(rs.getObject(3,FosUser.class));
             }
             return wlst;
         } catch (SQLException ex) {

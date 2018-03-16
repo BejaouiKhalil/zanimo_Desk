@@ -21,10 +21,10 @@ public class TestServiceOrders {
         
         
         
-        //System.out.println(OS.showAll().toString());
+        System.out.println(OS.showAll().toString());
         
 
-        //System.out.println(OS.findById(5).toString());
+        System.out.println(OS.findById(5).toString());
     }
     
 }
