@@ -7,11 +7,12 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import pi.zanimo.util.Product;
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-public class Animal implements Serializable {
+public class Animal extends Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Integer id;

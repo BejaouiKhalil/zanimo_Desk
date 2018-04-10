@@ -7,12 +7,13 @@ package pi.zanimo.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import pi.zanimo.util.Product;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-public class Food implements Serializable {
+public class Food extends Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Integer id;

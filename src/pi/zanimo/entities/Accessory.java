@@ -8,12 +8,13 @@ package pi.zanimo.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import pi.zanimo.util.Product;
 
 /**
  *
  * @author Ben Ghozzia Ahmed
  */
-public class Accessory implements Serializable {
+public class Accessory extends Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     

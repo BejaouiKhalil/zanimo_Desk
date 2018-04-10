@@ -326,7 +326,7 @@ public class FosUser implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.FosUser[ id=" + id + " ]";
+        return "Entities.FosUser[ id=" + id + " , username=" + username + " ]";
     }
 
     public Wishlist getWishlist() {
